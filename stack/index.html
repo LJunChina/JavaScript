@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="Stack.js"></script>
+    <script type="text/javascript">
+        //var s = new Stack();
+        //s.push("a");//向栈顶压入元素
+        //s.push("b");
+        //s.push("c");
+        //console.log(s.length());//输出栈内元素个数 
+        //console.log(s.pop());//返回栈顶元素并删除
+        //console.log(s.length());
+        //console.log(s.peek());//返回栈顶元素不删除
+        //s.clear();
+        //console.log(s.length());
+        //console.log(s.peek());
+        
+
+        function Factorial(num) {
+            if (num == 0) {
+                return 1;//0的阶乘为1
+            } else {
+                return num*Factorial(num - 1);
+            }
+
+        }
+        function StackFactorial(num) {
+            var stack = new Stack();
+            while (num > 1) {
+                stack.push(num--);
+            }
+            var result = 1;
+            while (stack.length() > 0) {
+                result *= stack.pop();
+            }
+            return result;
+        }
+        console.log(Factorial(10));
+        console.log(StackFactorial(10));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
