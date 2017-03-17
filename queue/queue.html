@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <script src="Queue.js"></script>
+    <script type="text/javascript">
+        //var queue = new Queue(['a','b']);       
+        //console.log(queue.toString());
+        ////queue.dequeue();//a出队
+        ////console.log(queue.toString());
+        //console.log(queue.front());//队头元素
+        //console.log(queue.back());//队尾元素
+        //queue.dequeue();
+        //queue.dequeue();
+        //console.log(queue.empty());
+
+        //console.log(parseInt(Math.random() * 100));
+
+
+             
+
+        var queues = [];
+        for (var i = 0; i < 10; ++i) {
+            queues[i] = new Queue([]);
+        }
+        var nums = [];
+        for (var i = 0; i < 10; ++i) {
+            nums[i] = Math.floor(Math.floor(Math.random() * 101));
+        }
+        console.log("排序前:");
+        showArray(nums);
+        allocation(nums, queues, 10, 1);
+        collection(queues, nums);
+        allocation(nums,queues,10,10);
+        collection(queues, nums);
+        console.log("排序后");
+        showArray(nums);
+
+        function showArray(array) {
+            console.log(array);
+        }
+
+        function allocation(nums,queues,n,digit) {
+            for (var i = 0; i < n; ++i) {
+                if (digit == 1) {
+                    queues[nums[i] % 10].enqueue(nums[i]);
+                }
+                else {
+                    queues[Math.floor(nums[i] / 10)].enqueue(nums[i]);
+                }
+            }
+        }
+
+        function collection(queues, nums) {
+            var i = 0;
+            for (var digit = 0; digit < 10; ++digit) {
+                while (!queues[digit].empty()) {
+                    nums[i++] = queues[digit].dequeue();
+                }
+            }
+        }
+        
+       // console.log(generatorArray());
+    </script>
+</head>
+<body>
+
+</body>
+</html>
