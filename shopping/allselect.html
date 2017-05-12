@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <style>
+        table{
+            border-collapse:collapse;
+        }
+        th,td{
+            border:1px solid #808080;
+            width:150px;
+            text-align:center;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            var allselect = document.getElementById("allselect");
+            var oppselect = document.getElementById("oppselect");
+            allselect.onchange = function () {
+                var status = this.checked;//获取当前checkbox的checked状态
+                var others = document.getElementsByTagName("tbody")[0].getElementsByTagName("input");
+                if (status) {//若被选中，让其他checkbox选中                    
+                    for (var i = 0; i < others.length; i++) {
+                        others[i].checked = true;//让每个checkbox选中
+                    }
+                } else {
+                    for (var i = 0; i < others.length; i++) {
+                        others[i].checked = false;//让每个checkbox不选中
+                    }
+                }
+            };
+            oppselect.onchange = function () {
+                var others = document.getElementsByTagName("tbody")[0].getElementsByTagName("input");
+                for (var i = 0; i < others.length; i++) {
+                    others[i].checked = !others[i].checked;//将当前的checkbox状态修改为与之相反的状态
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th><input type="checkbox" id="allselect" />全选<input type="checkbox" id="oppselect" />反选</th>
+                <th>序号</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="checkbox" /></td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" /></td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" /></td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" /></td>
+                <td>4</td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" /></td>
+                <td>5</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
