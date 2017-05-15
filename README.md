@@ -9,4 +9,6 @@
 		<li>Doublely linkedList:双向链表</li>
 		<li>Circular LinkedList:循环链表</li>
 	</ul>
+# shooter
+纯JS模仿微信打飞机小游戏
 	
